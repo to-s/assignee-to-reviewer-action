@@ -10,7 +10,7 @@ LABEL repository="http://github.com/pullreminders/assignee-to-reviewer-action"
 LABEL homepage="http://github.com/pullreminders/assignee-to-reviewer-action"
 LABEL maintainer="Abi Noda <abi@pullreminders.com>"
 
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
     curl \
     jq
 
