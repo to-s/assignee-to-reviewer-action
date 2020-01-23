@@ -34,7 +34,7 @@ set_comment() {
 }
 
 update_review_request() {
-  curl -sSL \
+  echo -sSL \
     -H "Content-Type: application/json" \
     -H "${AUTH_HEADER}" \
     -H "${API_HEADER}" \
