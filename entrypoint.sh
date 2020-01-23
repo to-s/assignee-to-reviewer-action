@@ -28,7 +28,7 @@ set_comment() {
     -H "Content-Type: application/json" \
     -H "${AUTH_HEADER}" \
     -H "${API_HEADER}" \
-    -X $1 \
+    -X POST \
     -d "{\"body\":\"$1\"}" \
     "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${number}/requested_reviewers"
 }
@@ -38,7 +38,7 @@ update_review_request() {
     -H "Content-Type: application/json" \
     -H "${AUTH_HEADER}" \
     -H "${API_HEADER}" \
-    -X POST \
+    -X $1 \
     -d "{\"reviewers\":[\"${assignee}\"]}" \
     "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${number}/comments"
 }
