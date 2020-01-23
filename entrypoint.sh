@@ -45,10 +45,10 @@ update_review_request() {
 
 if [[ "$action" == "assigned" ]]; then
   update_review_request 'POST'
-  set_comment 'assigned $assignee'
+  set_comment "assigned ${assignee}"
 elif [[ "$action" == "unassigned" ]]; then
   update_review_request 'DELETE'
-  set_comment 'unassigned $assignee'
+  set_comment "unassigned ${assignee}"
 else
   echo "Ignoring action ${action}"
   exit 0
