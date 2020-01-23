@@ -23,7 +23,7 @@ action=$(jq --raw-output .action "$GITHUB_EVENT_PATH")
 number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 assignee=$(jq --raw-output .assignee.login "$GITHUB_EVENT_PATH")
 
-update_review_request() {
+set_comment() {
   curl -sSL \
     -H "Content-Type: application/json" \
     -H "${AUTH_HEADER}" \
@@ -33,7 +33,7 @@ update_review_request() {
     "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${number}/requested_reviewers"
 }
 
-set_comment() {
+update_review_request() {
   curl -sSL \
     -H "Content-Type: application/json" \
     -H "${AUTH_HEADER}" \
