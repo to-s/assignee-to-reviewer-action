@@ -30,7 +30,7 @@ set_comment() {
     -H "${API_HEADER}" \
     -X $1 \
     -d "{\"body\":\"$1\"}" \
-    "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${number}/requested_reviewers"
+    "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${number}/requested_reviewers"
 }
 
 update_review_request() {
@@ -45,7 +45,7 @@ update_review_request() {
 
 if [[ "$action" == "assigned" ]]; then
   update_review_request 'POST'
-  update_review_request "assigned ${assignee}"
+  update_review_request 'assigned ${assignee}'
 elif [[ "$action" == "unassigned" ]]; then
   update_review_request 'DELETE'
   update_review_request 'unassigned ${assignee}'
