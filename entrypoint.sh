@@ -24,7 +24,7 @@ number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 assignee=$(jq --raw-output .assignee.login "$GITHUB_EVENT_PATH")
 
 set_comment() {
-  echo -sSL \
+  curl -sSL \
     -H "Content-Type: application/json" \
     -H "${AUTH_HEADER}" \
     -H "${API_HEADER}" \
