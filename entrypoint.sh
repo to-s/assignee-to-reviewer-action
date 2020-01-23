@@ -30,7 +30,7 @@ set_comment() {
     -H "${API_HEADER}" \
     -X POST \
     -d "{\"body\":\"$1\"}" \
-    "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${number}/requested_reviewers"
+    "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${number}/comments"
 }
 
 update_review_request() {
@@ -40,7 +40,7 @@ update_review_request() {
     -H "${API_HEADER}" \
     -X $1 \
     -d "{\"reviewers\":[\"${assignee}\"]}" \
-    "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${number}/comments"
+    "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${number}/requested_reviewers"
 }
 
 if [[ "$action" == "assigned" ]]; then
